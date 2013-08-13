@@ -10,5 +10,14 @@ angular.module('pongApp')
       $scope.games = data;
     });
 
+    $http({
+        url: 'http://localhost:3000/games',
+        method: 'POST',
+        data: {
+            player1: "Jimmy the Kid",
+            player2: "Butch Cassideyeyeyey"
+        }
+    });
+
 
   });
