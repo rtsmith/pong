@@ -5,18 +5,28 @@ angular.module('pongApp')
 
     var host = 'localhost:3000/';
 
-    $http.get('http://localhost:3000/games.json').success( function(data) {
-      console.log(data);
-      $scope.games = data;
-    });
-
-    $http({
-        url: 'http://localhost:3000/games',
-        method: 'POST',
-        data: {
-            player1: "Jimmy the Kid",
-            player2: "Butch Cassideyeyeyey"
+    $scope.add = function() {
+        var game = {
+            player1: $scope.addPlayer1,
+            player2: $scope.addPlayer2,
+            score1: $scope.addScore1,
+            score2: $scope.addScore2
         }
+
+        $http({
+            url: 'http://localhost:3000/games',
+            method: 'POST',
+            data: game
+        });
+
+        console.log("post: " + game);
+    };
+
+    $http.get('http://localhost:3000/games.json').success( function(data) {
+      console.log("put: " + data);
+
+      // on get success we pass Game.all into the scope
+      $scope.games = data;
     });
 
 
