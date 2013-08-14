@@ -16,18 +16,23 @@ angular.module('pongApp')
         $http({
             url: 'http://localhost:3000/games',
             method: 'POST',
-            data: game
+            data: game,
+            success: update()
         });
 
         console.log("post: " + game);
     };
 
-    $http.get('http://localhost:3000/games.json').success( function(data) {
-      console.log("put: " + data);
+    function update() {
+        $http.get('http://localhost:3000/games.json').success( function(data) {
+          console.log("put: " + data);
 
-      // on get success we pass Game.all into the scope
-      $scope.games = data;
-    });
+          // on get success we pass Game.all into the scope
+          $scope.games = data;
+        });
+    }
+    
+    update()
 
 
   });
