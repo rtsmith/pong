@@ -23,6 +23,14 @@ angular.module('pongApp')
         console.log("post: " + game);
     };
 
+    $scope.destroy = function(id) {
+        $http({
+            url: 'http://localhost:3000/games/' + id,
+            method: 'DELETE',
+            success: update()
+        });
+    }
+
     function update() {
         $http.get('http://localhost:3000/games.json').success( function(data) {
           console.log("put: " + data);
