@@ -3,8 +3,6 @@
 angular.module('pongApp')
   .controller('MainCtrl', function ($scope, $http) {
 
-    var host = 'localhost:3000/';
-
     $scope.add = function() {
         var game = {
             player1: $scope.addPlayer1,
@@ -14,7 +12,7 @@ angular.module('pongApp')
         }
 
         $http({
-            url: 'http://localhost:3000/games',
+            url: 'http://ping2013.herokuapp.com/games',
             method: 'POST',
             data: game,
             success: update()
@@ -25,14 +23,14 @@ angular.module('pongApp')
 
     $scope.destroy = function(id) {
         $http({
-            url: 'http://localhost:3000/games/' + id,
+            url: 'http://ping2013.herokuapp.com/games/' + id,
             method: 'DELETE',
             success: update()
         });
     }
 
     function update() {
-        $http.get('http://localhost:3000/games.json').success( function(data) {
+        $http.get('http://ping2013.herokuapp.com/games.json').success( function(data) {
           console.log("put: " + data);
 
           // on get success we pass Game.all into the scope
