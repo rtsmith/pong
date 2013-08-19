@@ -1,6 +1,6 @@
 <div class="hero-unit">
   <h3>Legends of Ping Pong</h3>
-  <div class="add" style="border: 1px dotted black; padding: 20px;">
+  <div class="add">
       <h4>Add a Match Result: </h4>
       <label> Player 1
           <input type="text" ng-model="addPlayer1">
@@ -14,7 +14,7 @@
       <label> Score 2
           <input type="text" ng-model="addScore2">
       </label>
-      <p ng-click="add()" style="border: 1px dashed black; padding: 10px; cursor: pointer;">Add it =></p>
+      <p ng-click="add()" class="add button">Add it =></p>
   </div>
   <ul>
       <h4>Previous Match Results:</h4>
@@ -28,7 +28,7 @@
               <span>{{game.player2}}</span>
               <span>{{game.score2}}</span>
           </div>
-          <div ng-click="destroy(game.id)">DELETE</div>
+          <div class="button" ng-click="destroy(game.id)">DELETE</div>
           <br>
       </li>
   </ul>

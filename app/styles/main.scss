@@ -12,6 +12,7 @@ body {
     background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
+    background: url(http://i.imgur.com/bYmzd.jpg) fixed;
 }
 
 .hero-unit {
@@ -29,4 +30,18 @@ body {
     font-size: 60px;
     line-height: 1;
     letter-spacing: -1px;
+}
+
+.add {
+    border: 1px dotted black;
+    padding: 20px;
+}
+.add.button {
+    border: 1px dashed black; padding: 10px; 
+}
+.button {
+    cursor: pointer;
+    &:hover {
+        border: 1px inset black;
+    }
 }
