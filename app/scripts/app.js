@@ -13,10 +13,25 @@ angular.module('pongApp', ['ngResource'])
   })
   .factory('GameResource', function($resource) {
 
-    return $resource('http://localhost:port/games:ext', {port: ':3000', ext: ''},{
-        get: { method: 'GET', ext: '.json', isArray: true },
-        save: { method: 'POST', ext: '' }
+    // define custom url
+    return $resource('http://localhost:port/games:ext/:id', 
+        // first object sets defaults
+        { port: ':3000', ext: '', id: ''},
+        // sets method specific values
+        {
+            get: { 
+                method: 'GET',
+                ext: '.json',
+                isArray: true 
+            },
+            save: { 
+                method: 'POST',
+                ext: ''
+            },
+            remove: { 
+                method: 'DELETE',
+                id: '@id'
+            }
         });
-
   });
   

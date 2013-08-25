@@ -4,6 +4,9 @@ angular.module('pongApp')
 
   .controller('MainCtrl', function ($scope, $http, GameResource) {
 
+    // initialize the games scope
+    $scope.games = [];
+
     // populate games on load
     var Games = GameResource.get( function(response){
         $scope.games = response;
@@ -30,12 +33,12 @@ angular.module('pongApp')
          );
     };
 
-    // $scope.destroy = function(id) {
-    //     $http({
-    //         url: 'http://ping2013.herokuapp.com/games/' + id,
-    //         method: 'DELETE'
-    //   //      success: update()
-    //     });
-    // }
+    $scope.destroy = function(game){
+        game.$remove({id: game.id}, function(){
+            console.log("delete successful!");
+            // remove that game from the games array
+            $scope.games.splice(game.id, 1);
+        });
+    };
 
   });
