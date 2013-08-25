@@ -1,35 +1,39 @@
-<div class="hero-unit">
-  <h3>Legends of Ping Pong</h3>
-  <div class="add" style="border: 1px dotted black; padding: 20px;">
-      <h4>Add a Match Result: </h4>
-      <label> Player 1
-          <input type="text" ng-model="addPlayer1">
-      </label>
-      <label> Score 1
-          <input type="text" ng-model="addScore1">
-      </label>
-      <label> Player 2
-          <input type="text" ng-model="addPlayer2">
-      </label>
-      <label> Score 2
-          <input type="text" ng-model="addScore2">
-      </label>
-      <p ng-click="add()" style="border: 1px dashed black; padding: 10px; cursor: pointer;">Add it =></p>
-  </div>
-  <ul>
-      <h4>Previous Match Results:</h4>
-      <li ng-repeat="game in games | orderBy:'-id' ">
-          <div class="player 1">
-              <span>{{game.player1}}</span>
-              <span>{{game.score1}}</span>
-          </div>
-          <i>vs.</i>
-          <div class="player 2">
-              <span>{{game.player2}}</span>
-              <span>{{game.score2}}</span>
-          </div>
-          <div ng-click="destroy(game.id)">DELETE</div>
-          <br>
-      </li>
-  </ul>
+<div class="span">
+    <div class="span4">
+        <h3>Legends of Ping Pong</h3>
+        <div class="add" style="border: 1px dotted black; padding: 20px;">
+          <h4>Add a Match Result: </h4>
+          <label> Player 1
+              <input type="text" ng-model="addPlayer1">
+          </label>
+          <label> Score 1
+              <input type="text" ng-model="addScore1">
+          </label>
+          <label> Player 2
+              <input type="text" ng-model="addPlayer2">
+          </label>
+          <label> Score 2
+              <input type="text" ng-model="addScore2">
+          </label>
+          <p ng-click="postGame()" style="border: 1px dashed black; padding: 10px; cursor: pointer;">Add it =></p>
+        </div>
+    </div>
+    <div class="span6">
+        <ul>
+          <h4>Previous Match Results:</h4>
+          <li ng-repeat="game in games | orderBy:'-id' ">
+              <div class="player 1">
+                  <span>{{game.player1}}</span>
+                  <span>{{game.score1}}</span>
+              </div>
+              <i>vs.</i>
+              <div class="player 2">
+                  <span>{{game.player2}}</span>
+                  <span>{{game.score2}}</span>
+              </div>
+              <div ng-click="destroy(game.id)">DELETE</div>
+              <br>
+          </li>
+        </ul>
+    </div>
 </div>
