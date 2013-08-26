@@ -21,7 +21,7 @@
     <div class="span6">
         <ul>
           <h4>Previous Match Results:</h4>
-          <li ng-repeat="game in games | orderBy:'-id' ">
+          <li ng-repeat="game in games">
               <div class="player 1">
                   <span>{{game.player1}}</span>
                   <span>{{game.score1}}</span>
@@ -31,7 +31,7 @@
                   <span>{{game.player2}}</span>
                   <span>{{game.score2}}</span>
               </div>
-              <div ng-click="destroy(game)">DELETE</div>
+              <div ng-click="destroy(game, $index)">DELETE</div>
               <br>
           </li>
         </ul>

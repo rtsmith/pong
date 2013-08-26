@@ -10,6 +10,7 @@ angular.module('pongApp')
     // populate games on load
     var Games = GameResource.get( function(response){
         $scope.games = response;
+        console.log(response);
     });
 
     // define a function to post a result
@@ -25,19 +26,21 @@ angular.module('pongApp')
             // post data ..
             game,
             // success callback ..
-            function(){
+            function(response){
                 console.log("post success!");
-                $scope.games.push(game);
+                $scope.games.push(response);
             }
             // error callback ..
          );
     };
 
-    $scope.destroy = function(game){
+    $scope.destroy = function(game, index){
+        console.log(game);
+        console.log(index);
         game.$remove({id: game.id}, function(){
             console.log("delete successful!");
             // remove that game from the games array
-            $scope.games.splice(game.id, 1);
+            $scope.games.splice(index, 1);
         });
     };
 
